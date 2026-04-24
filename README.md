@@ -83,11 +83,12 @@ The project combines descriptive analysis and machine learning evidence to answe
 ## 5. How to run
 1. Download or clone this repository.
 2. Make sure Python 3 is installed.
-3. Install the required libraries: pip, install, pandas, numpy, matplotlib, seaborn, scikit-learn, jupyter
-4. Place the dataset file `fmcg_sales_marketing_profitability_2023_2025.csv` in the same folder as the notebook, or update the relative file path in the notebook if needed.
-5. Open the notebook in Jupyter Notebook or JupyterLab.
-6. Run all cells from top to bottom.
-7. Charts will be displayed in the notebook, and saved figures can also be stored in the `figures/` folder.
+3. Install the required libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4.Place the dataset file fmcg_sales_marketing_profitability_2023_2025.csv in the same folder as the notebook.
+5.Open success.ipynb in Jupyter Notebook and run all cells.
 
 ## 6. Limitations & Next Steps
 This project has several limitations. First, the analysis is based on one dataset, so the findings may not fully represent the entire FMCG industry. Second, the project mainly identifies patterns, correlations, and predictive importance, but these do not prove causality. Third, some potentially useful business variables, such as region, customer segment, seasonality, or brand-level information, are not included in the dataset.
