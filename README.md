@@ -1,38 +1,100 @@
-# Financial Ratio Analysis of Four FMCG Companies (2018–2023)
+# FMCG Profitability Analysis: How Discounts and Cost Structure Affect Profit Margin
+
+**Main notebook:** `success.ipynb`  
+**Demo video (1–3 minutes):** [Insert your demo video link here]
+
 ## 1. Problem & User
-This project aims to explore how global economic fluctuations and the COVID-19 pandemic impacted the profitability, operational efficiency and financial stability of leading fast-moving consumer goods (FMCG) companies from 2018 to 2023.
-It is designed for business school students, beginner investors and industry learners who want to understand corporate financial benchmarking and ratio analysis.
-## 2. Data (source + access date + key fields)
--**Data Source**: WRDS Compustat Annual Fundamentals Database
--**Access Date**: 22 April 2026
--**Covered Companies**: Procter & Gamble (PG), Unilever (UL), Coca-Cola (KO), PepsiCo (PEP)
--**Key Fields**: Net Income, Total Equity, Revenue, Total Assets, Liabilities, Inventory, Current Assets & Liabilities
-## 3. Methods 
-1. Connect to WRDS database and extract annual financial data
-2. Data cleaning, filtering and year alignment
-3. Calculate core financial ratios: ROE, ROA, Net Profit Margin, Gross Margin, Asset Turnover, Financial Leverage, Debt-to-Equity and Current Ratio
-4. Conduct horizontal year-over-year trend analysis and vertical cross-company benchmarking
-5. Generate data visualisation charts for clear result comparison
+This project investigates how discount strategy, promotion type, sales channel, and cost structure influence profit margin in an FMCG dataset. The analysis is designed for beginner investors, business students, and FMCG industry analysts who want a simple but evidence-based understanding of the key drivers of profitability.
+
+## 2. Data
+- **Source:** Kaggle – FMCG Sales & Profit Dataset (2023–2025)
+- **Dataset link:** https://www.kaggle.com/datasets/atharvasoundankar/fmcg-sales-marketing-and-profit-data
+- **Dataset file used:** `fmcg_sales_marketing_profitability_2023_2025.csv`  
+- **Access date:** 23 April 2026  
+
+### Key fields used
+- `Discount_Pct`
+- `Profit_Margin_Pct`
+- `Promotion_Type`
+- `Sales_Channel`
+- `COGS_USD`
+- `Logistics_Cost_USD`
+- `Net_Revenue_USD`
+- `Year`
+- `Product_Category`
+
+### Derived variable
+A new variable called `Total_Cost_Ratio` was created to capture the combined cost burden relative to revenue:
+
+`Total_Cost_Ratio = (COGS_USD + Logistics_Cost_USD) / Net_Revenue_USD`
+
+This variable is used to examine how cost structure is associated with profit margin.
+
+## 3. Methods
+This project follows a clear Python-based analytical workflow from raw data to business insight.
+
+### Step 1: Data loading
+- Imported the CSV dataset using `pandas`
+- Inspected the dataset structure, column names, and summary statistics
+
+### Step 2: Data cleaning
+- Converted key variables into numeric format using safe conversion
+- Handled missing and invalid values
+- Excluded rows where `Net_Revenue_USD` was zero before calculating ratios
+- Used a cleaned dataset for the main analysis
+
+### Step 3: Feature engineering
+- Created `Total_Cost_Ratio`
+- Prepared grouped summaries by promotion type, sales channel, year, and product category
+
+### Step 4: Descriptive analysis
+The notebook examines:
+- the relationship between `Discount_Pct` and `Profit_Margin_Pct`
+- average profit margin by `Promotion_Type`
+- average discount by `Sales_Channel`
+- the distribution of `Total_Cost_Ratio`
+- yearly changes in average profit margin
+- average profit margin across product categories
+- the relationship between `Total_Cost_Ratio` and `Profit_Margin_Pct`
+
+### Step 5: Visualisation
+The analysis uses `matplotlib` and `seaborn` to create:
+- scatter plots
+- boxplots
+- bar charts
+- histograms
+- line charts
+
+These visualisations are used to support interpretation and communicate the results clearly.
+
+### Step 6: Predictive modelling
+A Random Forest regression model is used to predict `Profit_Margin_Pct` and identify the most important variables affecting profitability.
+
+### Step 7: Conclusion
+The project combines descriptive analysis and machine learning evidence to answer the main business question: which factors are most strongly associated with FMCG profit margin?
+
 ## 4. Key Findings
-1.All four FMCG companies showed strong industry resilience during the COVID-19 period (2020–2021). Despite temporary dips in return ratios and margins in 2019, all businesses recovered rapidly and maintained generally solid financial performance across the entire 2018–2023 timeframe.
-2.Coca-Cola consistently records the highest gross margin (remaining above 61% for all years), followed by PepsiCo, Procter & Gamble and Unilever, reflecting Coca-Cola’s superior brand pricing power and cost control capability.
-3.PepsiCo and Unilever started with the highest ROE and ROA in 2018, but experienced larger volatility and an overall downward trend afterwards. In contrast, Procter & Gamble hit a low point in 2019 and then delivered steady, continuous growth in both ROE and ROA, showing the most stable long-term profitability improvement.
-4.PepsiCo maintains the highest financial leverage and debt-to-equity ratio across the period, representing the most aggressive, debt-heavy business model. Procter & Gamble operates with the lowest leverage and gearing level, holding the most conservative and low-risk capital structure of the four firms.
-5.Unilever and PepsiCo lead in asset turnover, demonstrating stronger asset utilisation and core operational efficiency. Coca-Cola holds the highest current ratio with the best short-term liquidity position, and all four companies maintained healthy overall solvency throughout the analysis period.
+- There is a negative relationship between discount percentage and profit margin, suggesting that heavier discounting is generally associated with lower profitability.
+- Profit margin differs across promotion types, indicating that not all promotional strategies are equally effective.
+- Average discount levels vary across sales channels, showing that pricing strategy is not the same in every channel.
+- `Total_Cost_Ratio` is an important predictor of profit margin, highlighting the role of cost control in FMCG performance.
+- Profitability also varies across years and product categories, suggesting that margin outcomes depend on both time-related and product-related factors.
+
 ## 5. How to run
-1. Install required Python libraries: `wrds`, `pandas`, `matplotlib`
-2. Log in with valid WRDS account credentials
-3. Run the `notebook.ipynb` file step by step
-4. Full dataset and charts will be generated automatically
-## 6. Product link / Demo
-GitHub Repository:
-Project Demo Video：
-## 7. Limitations & next steps
-### Limitations
-1.This analysis only uses annual consolidated data, without quarterly detailed performance insight.
-2.Only 4 companies are included, lacking wider industry peer benchmark comparison.
-3.Macroeconomic factors like inflation and exchange rate are not integrated into the model.
-### Next Steps
-1.Expand the dataset to include more global FMCG competitors.
-2.Introduce DuPont ROE decomposition for deeper driver analysis.
-3.Add regression modelling to quantify external economic impact.
+1. Download or clone this repository.
+2. Make sure Python 3 is installed.
+3. Install the required libraries: pip, install, pandas, numpy, matplotlib, seaborn, scikit-learn, jupyter
+4. Place the dataset file `fmcg_sales_marketing_profitability_2023_2025.csv` in the same folder as the notebook, or update the relative file path in the notebook if needed.
+5. Open the notebook in Jupyter Notebook or JupyterLab.
+6. Run all cells from top to bottom.
+7. Charts will be displayed in the notebook, and saved figures can also be stored in the `figures/` folder.
+
+## 6. Limitations & Next Steps
+This project has several limitations. First, the analysis is based on one dataset, so the findings may not fully represent the entire FMCG industry. Second, the project mainly identifies patterns, correlations, and predictive importance, but these do not prove causality. Third, some potentially useful business variables, such as region, customer segment, seasonality, or brand-level information, are not included in the dataset.
+
+Future improvements could include:
+- adding more business variables for richer analysis
+- comparing Random Forest with simpler models such as linear regression
+- improving feature engineering and model evaluation
+- building a more interactive dashboard for users
+- testing whether the same relationships hold in other FMCG datasets
