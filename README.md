@@ -1,7 +1,7 @@
 # FMCG Profitability Analysis: How Discounts and Cost Structure Affect Profit Margin
 
 **Main notebook:** `success.ipynb`  
-**Demo video (1–3 minutes):** (demo video link)
+**Demo video (1–3 minutes):** https://video.xjtlu.edu.cn/Mediasite/MyMediasite/embedded/presentations/890feeaec56846ee9ca6c52609511e0a1d
 
 ## 1. Problem & User
 This project investigates how discount strategy, promotion type, sales channel, and cost structure influence profit margin in an FMCG dataset. The analysis is designed for beginner investors, business students, and FMCG industry analysts who want a simple but evidence-based understanding of the key drivers of profitability.
