@@ -39,7 +39,7 @@ This project follows a clear Python-based analytical workflow from raw data to b
 
 ### Step 2: Data cleaning
 - Converted key variables into numeric format using safe conversion
-- Handled missing and invalid values
+- No missing values were found in the dataset.
 - Excluded rows where `Net_Revenue_USD` was zero before calculating ratios
 - Used a cleaned dataset for the main analysis
 
@@ -74,7 +74,7 @@ A Random Forest regression model is used to predict `Profit_Margin_Pct` and iden
 The project combines descriptive analysis and machine learning evidence to answer the main business question: which factors are most strongly associated with FMCG profit margin?
 
 ## 4. Key Findings
-- There is a negative relationship between discount percentage and profit margin, suggesting that heavier discounting is generally associated with lower profitability.
+- There is a weak positive relationship between discount percentage and profit margin.
 - Profit margin differs across promotion types, indicating that not all promotional strategies are equally effective.
 - Average discount levels vary across sales channels, showing that pricing strategy is not the same in every channel.
 - `Total_Cost_Ratio` is an important predictor of profit margin, highlighting the role of cost control in FMCG performance.
